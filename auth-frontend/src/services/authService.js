@@ -2,7 +2,7 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-const API_URL = 'http://localhost:5000/api'; // Adjust to your backend URL
+const API_URL = 'http://localhost:8080'; // Adjust to your backend URL
 
 // Create axios instance with default config
 const api = axios.create({
@@ -55,7 +55,7 @@ api.interceptors.response.use(
 
 export const signup = async (userData) => {
   try {
-    const response = await api.post('user/signup', userData);
+    const response = await api.post('/user/signup', userData);
     return response.data;
   } catch (error) {
     throw error.response?.data || { error: 'Network error' };
@@ -64,7 +64,7 @@ export const signup = async (userData) => {
 
 export const login = async (credentials) => {
   try {
-    const response = await api.post('user/login', credentials);
+    const response = await api.post('/user/login', credentials);
     const { accessToken, refreshToken } = response.data;
     
     // Store access token in session storage (memory)
