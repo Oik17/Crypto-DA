@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 
-const {signup,login,refresh,logout,getAllUser}=require('../controllers/userAuth')
-const {authenticateToken,verifyRefreshToken}= require('../middleware/authenticate')
+const {signup,login,refresh,logout,getAllUser}=require('../controllers/auth')
+const {authenticateToken,verifyRefreshToken}= require('../middleware/auth')
 router.get('/test', (req, res) => {
   res.send("hello");
 });
